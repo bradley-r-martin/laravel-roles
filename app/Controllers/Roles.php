@@ -2,7 +2,7 @@
 namespace BRM\Roles\app\Controllers;
 
 use Illuminate\Routing\Controller;
-use Pursuit\Laravel\app\Traits\Control;
+use BRM\Vivid\app\Traits\Control;
 
 class Roles extends Controller
 {
