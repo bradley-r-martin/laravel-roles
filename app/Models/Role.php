@@ -23,10 +23,10 @@ class Role extends Model
     ];
 
 
-    public function privileges()
+    public function permissions()
     {
       if (class_exists('\BRM\Permissions\FrameworkServiceProvider')) {
-        return $this->belongsToMany(\BRM\Permissions\app\Models\Privilege::class, 'rolePrivileges', 'privilegeId', 'roleId');
+        return $this->belongsToMany(\BRM\Permissions\app\Models\Permissions::class, 'rolePermissions', 'permissionId', 'roleId');
       }
       return null;
     }

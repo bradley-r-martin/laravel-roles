@@ -14,14 +14,14 @@ class CreateUserRolesTable extends Migration
     public function up()
     {
       if (class_exists('\BRM\Permissions\FrameworkServiceProvider')) {
-          Schema::create('rolePrivileges', function (Blueprint $table) {
-              $table->integer('privilegeId')->unsigned();
+          Schema::create('rolePermissions', function (Blueprint $table) {
+              $table->integer('permissionId')->unsigned();
               $table->integer('roleId')->unsigned();
               //FOREIGN KEY CONSTRAINTS
-              $table->foreign('privilegeId')->references('id')->on('privileges')->onDelete('cascade');
+              $table->foreign('permissionId')->references('id')->on('permissions')->onDelete('cascade');
               $table->foreign('roleId')->references('id')->on('roles')->onDelete('cascade');
               //SETTING THE PRIMARY KEYS
-              $table->primary(['privilegeId','roleId']);
+              $table->primary(['permissionId','roleId']);
               $table->timestamp('createdAt')->useCurrent();
               $table->timestamp('updatedAt')->nullable();
           });
@@ -35,6 +35,6 @@ class CreateUserRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rolePrivileges');
+        Schema::dropIfExists('rolePermissions');
     }
 }
