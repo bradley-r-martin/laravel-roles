@@ -31,4 +31,12 @@ class Role extends Model
       return null;
     }
 
+    public function users(){
+        return $this->morphedByMany('\Pursuit\Users\app\Models\User', 'roleSubjects');
+    }
+
+    public function clients(){
+      return $this->morphedByMany('\Sihq\Clients\app\Models\Client', 'roleSubjects');
+  }
+
 }
