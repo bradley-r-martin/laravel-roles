@@ -14,7 +14,9 @@ class Roles
           'invisible'
         ];
         $this->filters = [];
-        $this->includes = [];
+        $this->includes = [
+          'permissions'
+        ];
         $this->sanitise = [
           'name' => ['string','max:255'],
           'name' => ['string','max:255'],
